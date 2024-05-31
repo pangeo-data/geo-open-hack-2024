@@ -72,4 +72,4 @@ Before starting this tutorial, learners should have:
 
 ## Set up
 
-If you are participating in this training as part of the GEO-OPEN-HACK-2024, you will need to register to [Pangeo@EOSC](https://pangeo-data.github.io/pangeo-eosc/) register yourself following the instructions given at [getting started for users](https://pangeo-data.github.io/pangeo-eosc/users/users-getting-started.html).
+If you are participating in this training as part of the GEO-OPEN-HACK-2024, you will need to register to [Pangeo@EOSC](https://pangeo-data.github.io/pangeo-eosc/) register yourself following the instructions given at [getting started for users](https://pangeo-data.github.io/geo-open-hack-2024/users-getting-started.html).

@@ -9,6 +9,7 @@ dependencies:
   - numpy
   - ghp-import
   - xarray
+  - rioxarray
   - zarr
   - cftime
   - nc-time-axis
@@ -21,14 +22,18 @@ dependencies:
   - cartopy
   - geopandas
   - intake
+  - intake-esm
   - pooch
+  - dask
+  - kerchunk
   - fsspec
   - s3fs
   - git
   - jupyterlab-git
   - "nodejs>=16,<17"
   - jupyterlab-myst>=2.0.0
-  - ipywidgets
+  - "ipywidgets>=7.6.0,<8"
+  - pip
   - pip:
       - wget
       - sphinx-exercise

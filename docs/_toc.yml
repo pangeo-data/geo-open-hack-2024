@@ -5,6 +5,18 @@ parts:
     chapters:
       - file: agenda
       - file: users-getting-started
-  - caption: Master Pangeo@EOSC
+  - caption: Getting started with Pangeo@EOSC
     chapters:
       - file: object-storage-minio-test
+  - caption: Learning to master the Pangeo ecosystem
+    chapters:
+      - file: xarray_introduction
+        title: Handling multi-dimensional arrays with xarray
+      - file: visualization
+        title: Interactive plotting with holoviews
+      - file: data_discovery
+        title: Data access and discovery
+      - file: chunking_introduction
+        title: Chunking
+      - file: dask_introduction
+        title: Parallel computing with dask

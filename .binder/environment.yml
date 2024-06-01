@@ -9,6 +9,7 @@ dependencies:
   - numpy
   - ghp-import
   - xarray
+  - zarr
   - cftime
   - netcdf4
   - h5netcdf

@@ -3,7 +3,7 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.11
+  - python
   - jupyter-book
   - matplotlib
   - numpy
@@ -11,6 +11,7 @@ dependencies:
   - xarray
   - zarr
   - cftime
+  - nc-time-axis
   - netcdf4
   - h5netcdf
   - cartopy
@@ -19,6 +20,7 @@ dependencies:
   - geoviews
   - cartopy
   - geopandas
+  - intake
   - pooch
   - fsspec
   - s3fs
@@ -26,6 +28,7 @@ dependencies:
   - jupyterlab-git
   - "nodejs>=16,<17"
   - jupyterlab-myst>=2.0.0
+  - ipywidgets
   - pip:
       - wget
       - sphinx-exercise

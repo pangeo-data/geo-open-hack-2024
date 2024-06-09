@@ -14,7 +14,8 @@ only_build_toc_files: true
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  exclude_patterns: '*minio*'
+  exclude_patterns: 
+    - '*minio*'
   execute_notebooks: auto
   timeout: 1000
 

@@ -1,5 +1,7 @@
 # geo-open-hack-2024
 
+[![geo-open-hack-2024 Jupyter book](https://github.com/pangeo-data/geo-open-hack-2024/actions/workflows/jupyter-book.yml/badge.svg)](https://github.com/pangeo-data/geo-open-hack-2024/actions/workflows/jupyter-book.yml)
+
 GEO-OPEN-HACK-2024 is a comprehensive and informative event designed for advanced geo-coders to explore various open tools and approaches for upscaling geospatial analysis on open High-Performance Computing (HPC) infrastructure.
 
 The event is organised by the [International Institute of Applied Systems Analysis](https://iiasa.ac.at/) (IIASA) in collaboration with [Spatial Ecology](https://spatial-ecology.net/). This hackathon delves into advanced cutting-edge open techniques, tools, and best practices for efficiently handling and processing vast amounts of geospatial data. Participants will gain hands-on experience in leveraging HPC resources and geo-tools for tasks such as geospatial data preprocessing, spatial modeling and analytics, and visualization.

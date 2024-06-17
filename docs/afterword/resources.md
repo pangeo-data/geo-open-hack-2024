@@ -1,5 +1,5 @@
 
-![Pangeo logo](.././figures/pangeo_name_logo.png) 
+![Pangeo logo](../images/pangeo_name_logo.png) 
 
 **A community platform for Big Data geoscience** 
 

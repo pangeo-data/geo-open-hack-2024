@@ -4,19 +4,28 @@ parts:
   - caption: About
     chapters:
       - file: agenda
-      - file: users-getting-started
   - caption: Getting started with Pangeo@EOSC
     chapters:
-      - file: object-storage-minio-test
+      - file: setup/eosc-pangeo
+      - file: setup/users-getting-started
   - caption: Learning to master the Pangeo ecosystem
     chapters:
-      - file: xarray_introduction
+      - file: pangeo/xarray_introduction
         title: Handling multi-dimensional arrays with xarray
-      - file: visualization
+      - file: pangeo/visualization
         title: Interactive plotting with holoviews
-      - file: data_discovery
+      - file: pangeo/data_discovery
         title: Data access and discovery
-      - file: chunking_introduction
+      - file: pangeo/chunking_introduction
         title: Chunking
-      - file: dask_introduction
+      - file: pangeo/dask_introduction
         title: Parallel computing with dask
+  - caption: Beyond the workshop
+    chapters:
+      - file: setup/object-storage-minio-test
+      - file: afterword/resources
+        title: Resources
+      - file: afterword/pythia
+        title: Project Pythia
+      - file: afterword/envds-book
+        title: Environmental Data Science Book

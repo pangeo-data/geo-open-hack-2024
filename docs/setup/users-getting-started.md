@@ -1,18 +1,26 @@
 
-# Users: How to get access to `pangeo-eosc` services?
+# Registration to Pangeo@EOSC
 
-In this section you will learn how to register and access `pangeo-eosc` services.
+As explained in the previous section, Pangeo@EOSC is the main public deployment of the Pangeo ecosystem open to European researchers and their collaborators.
+The deployment is hosted on European infrastructure and is meant to remain public and freely accessible to all European researchers. Pangeo@Europe mostly uses Pangeo@EOSC for training researchers.
 
-## Registration
+In this section you will learn how to register and access pangeo@eosc services.
 
 You need to create an [EGI Check-in account](https://www.egi.eu/service/check-in/) and enroll to the `vo.pangeo.eu` Virtual Organisation. There are several steps to follow:
 
 1. **Sign up** for an EGI Check-in account following [these steps](https://docs.egi.eu/users/aai/check-in/signup/). **Using [ORCID iD](https://orcid.org/) to authenticate is recommended.**
 2. **Enroll** in the `vo.pangeo.eu` Virtual Organisation (VO) by clicking on [the enrollment URL](https://aai.egi.eu/registry/co_petitions/start/coef:386) using the EGI Check-in account created in the previous step. Review and click on `Submit`. Please add a note in the statement of purpose (make sure you use the text given by your instructors) when requesting to join the VO explaining why you want to access `pangeo-eosc`.
 
-## Access DaskHub
+:::{note}
+After the Geo-Open-Hack Course, you can continue to use the resources.
+We would appreciate you get in touch with us to give us some feedback and be informed of the platform evolution. You can do this through [Github Discussions](https://github.com/pangeo-data/pangeo-eosc/discussions).
 
-Access DaskHub via [https://pangeo-eosc.vm.fedcloud.eu/](https://pangeo-eosc.vm.fedcloud.eu/) and choose among the 4 available flavors (as shown on the figure below):
+You can also contribute to "the Pangeo show and tell" online meetups.
+:::
+
+## Access to Pangeo@EOSC
+
+Access Pangeo@EOSC via [https://pangeo-eosc.vm.fedcloud.eu/](https://pangeo-eosc.vm.fedcloud.eu/) and choose among the 4 available flavors (as shown on the figure below):
 
 ![Cloud EGI JupyterHub flavors](images/flavors.png)
 
@@ -44,20 +52,7 @@ In addition to the MinIO console, the API end point is `https://pangeo-eosc-mini
 
 If you need support, please open an [issue](https://github.com/pangeo-data/geo-open-hack-2024/issues).
 
-# How to acknowledge Pangeo-EOSC
+## How to acknowledge Pangeo-EOSC
 
 [Pangeo-EOSC](https://github.com/pangeo-data/pangeo-eosc/) has benefited from services and resources provided by the [EGI-ACE project](https://www.egi.eu/project/egi-ace/) (funded by the European Union’s Horizon 2020 research and innovation programme under Grant Agreement no. 101017567), and the [C-SCALE project](https://c-scale.eu/) (funded by the European Union's Horizon 2020 research and innovation programme under grant agreement no. 101017529), with the dedicated support of [CESNET](https://www.cesnet.cz/en/).
 
-## The European Open Science Cloud (EOSC)
-
-![EOSC logo](./images/EOSC_logo-small.png)
-
-The [European Open Science Cloud (EOSC)](https://open-science-cloud.ec.europa.eu/) aims at becoming the main environment for hosting and processing research data to support European Science.
-
-## Pangeo Europe 
-
-![Pangeo logo](./images/pangeo_name_logo.png)
-
-[Pangeo](https://pangeo.io/) is a worldwide community for Big Data geoscience promoting open, reproducible, and scalable science. 
-
-[Pangeo Europe](https://pangeo.io/meeting-notes.html) aims at highlighting European contributions to the Pangeo Community and at providing a reference deployment for Pangeo on EOSC. The Pangeo deployment on EOSC has been made possible thanks to [CESNET](https://www.cesnet.cz/en/) in the context of the the [EGI-ACE project](https://youtu.be/Vc9SZNa2-Os) and the [C-SCALE project](https://youtu.be/-jBkR_2_vg8).

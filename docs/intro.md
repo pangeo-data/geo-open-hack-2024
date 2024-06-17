@@ -41,27 +41,40 @@ tags:
 thumbnail: images/pangeo-logo.png
 ---
 
-#  GEO-OPEN-HACK-2024: Big Geospatial Data Hackathon with Open Infrastructure and Tools
+#  GEO-OPEN-HACK-2024
+
+**Big Geospatial Data Hackathon with Open Infrastructure and Tools**
 
 +++ {"part":"abstract"}
 
 % The article should include an abstract block at the beginning. The block is delimited by `+++` before and after, and you must specify `"part": "abstract"` as JSON metadata on the block opener. This metadata is required for recognizing the content of this cell as the abstract.
 % The abstract should begin with a short description of the problem addressed, briefly describe the new data or analyses, then briefly state the main conclusion(s) and how they are supported, and address any uncertainty.
 
-This tutorial will provide a comprehensive introduction along with hands-on examples to help you understand how these technologies can be used for Earth science data analysis and interpretation.
+[GEO-OPEN-HACK-2024](https://iiasa.ac.at/events/jun-2024/geo-open-hack-2024-big-geospatial-data-hackathon-with-open-infrastructure-and-tools) is a comprehensive and informative event designed for advanced geo-coders to explore various open tools and approaches for upscaling geospatial analysis on open High-Performance Computing (HPC) infrastructure.
+
+The event is organised by the [International Institute of Applied Systems Analysis (IIASA)](https://iiasa.ac.at) in collaboration with [Spatial Ecology](https://spatial-ecology.net/). 
 
 +++
 
-# Overview
+## Overview
  
-In this tutorial, participants will learn how to 1) navigate the Pangeo ecosystem for scalable Earth Science workflows and 2) exploit Earth Observation (EO) data.
+This Pangeo tutorial is part of GEO-OPEN-HACK-2024 and will provide a comprehensive introduction along with hands-on examples to help you understand how these technologies can be used for Earth science data analysis and interpretation.
+
+In this tutorial, participants will learn how to 1) navigate the Pangeo ecosystem for scalable Earth Science workflows on Pangeo@EOSC, and 2) exploit Earth Observation (EO) data.
+
+:::{tip}
+[Pangeo-EOSC](https://github.com/pangeo-data/pangeo-eosc/) has benefited from services and resources provided by the [EGI-ACE project](https://www.egi.eu/project/egi-ace/) (funded by the European Union’s Horizon 2020 research and innovation programme under Grant Agreement no. 101017567), and the [C-SCALE project](https://c-scale.eu/) (funded by the European Union's Horizon 2020 research and innovation programme under grant agreement no. 101017529), with the dedicated support of [CESNET](https://www.cesnet.cz/en/).
+:::
 
 ## Tutorial Learning Objectives
 
 By the end of this tutorial, learners will be able to:
 
-- Understand the Pangeo ecosystem
-- Learn to access, load, and analyse data using Xarray, visualising data with Hvplot, and scaling workflows with Dask.
+- Learn about the European Open Science Cloud (EOSC)
+- Understand the Pangeo ecosystem and Pangeo@EOSC;
+- Learn to access, load, and analyse data using Xarray, visualising data with Hvplot, and scaling workflows with Dask;
+- Understand how to interface Pangeo ecosystem (Xarray & Dask) with the most common machine learning Python ecosystem ([Pytorch](https://pytorch.org) & [Tensorflow](https://www.tensorflow.org/)).
+
 
 ## Prerequisites
 
@@ -72,4 +85,5 @@ Before starting this tutorial, learners should have:
 
 ## Set up
 
-If you are participating in this training as part of the GEO-OPEN-HACK-2024, you will need to register to [Pangeo@EOSC](https://pangeo-data.github.io/pangeo-eosc/) register yourself following the instructions given at [getting started for users](https://pangeo-data.github.io/geo-open-hack-2024/users-getting-started.html).
+If you are participating in this training as part of the GEO-OPEN-HACK-2024, you will need to register yourself to [Pangeo@EOSC](https://pangeo-data.github.io/pangeo-eosc/). The set up instructions are given at [getting started with Pangeo@EOSC](https://pangeo-data.github.io/geo-open-hack-2024/users-getting-started.html).
+

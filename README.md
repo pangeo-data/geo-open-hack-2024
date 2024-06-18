@@ -62,6 +62,7 @@ Once all the required packages are installed, you can start JupyterLab and run t
 ```
 jupyter lab
 ```
+
 ## Contributions
 
 To contribute to `geo-open-hack-2024` please refer to [CONTRIBUTING](docs/CONTRIBUTING.md)

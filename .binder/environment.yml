@@ -33,6 +33,7 @@ dependencies:
   - "nodejs>=16,<17"
   - jupyterlab-myst>=2.0.0
   - "ipywidgets>=7.6.0,<8"
+  - odc-stac
   - pip
   - pip:
       - wget
@@ -40,3 +41,4 @@ dependencies:
       - jupytext
       - nbgitpuller
       - mystmd
+      - pystac-client

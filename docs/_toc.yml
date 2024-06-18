@@ -28,4 +28,4 @@ parts:
       - file: afterword/pythia
         title: Project Pythia
       - file: afterword/envds-book
-        title: Environmental Data Science Book
+        title: EDSBook

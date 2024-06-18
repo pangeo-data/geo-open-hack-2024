@@ -48,11 +48,14 @@ You can create, access and manage your buckets from the minIO console (or use [m
 
 In addition to the MinIO console, the API end point is `https://pangeo-eosc-minioapi.vm.fedcloud.eu/` for those who prefer to interact with MinIO via the API.
 
+## Clone the github repository
+
+To get a local copy of the `geo-open-hack-2024` repository, you can clone it on your local computer and/or server:
+
+```
+git clone https://github.com/pangeo-data/geo-open-hack-2024.git
+```
+
 ## Support
 
 If you need support, please open an [issue](https://github.com/pangeo-data/geo-open-hack-2024/issues).
-
-## How to acknowledge Pangeo-EOSC
-
-[Pangeo-EOSC](https://github.com/pangeo-data/pangeo-eosc/) has benefited from services and resources provided by the [EGI-ACE project](https://www.egi.eu/project/egi-ace/) (funded by the European Union’s Horizon 2020 research and innovation programme under Grant Agreement no. 101017567), and the [C-SCALE project](https://c-scale.eu/) (funded by the European Union's Horizon 2020 research and innovation programme under grant agreement no. 101017529), with the dedicated support of [CESNET](https://www.cesnet.cz/en/).
-

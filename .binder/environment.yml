@@ -29,6 +29,7 @@ dependencies:
   - fsspec
   - s3fs
   - git
+  - ipycytoscape
   - jupyterlab-git
   - "nodejs>=16,<17"
   - jupyterlab-myst>=2.0.0

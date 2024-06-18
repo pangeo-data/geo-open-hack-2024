@@ -18,13 +18,13 @@
 - [Continental meetings](https://pangeo.io/meeting-notes.html#continental-community-meetings): to adress different time zones among the globe continental meetings have been organized in Europe/Africa and Oceania.
 - [Showcases](https://pangeo.io/pangeo-showcase.html#pangeo-showcase): 15 minutes talks which are an opportunity for anyone to meet other members of the Pangeo community and let them know what you are working on. The talks are recorded, given a DOI, and made available on the [Pangeo YouTube Channel](https://youtube.com/playlist?list=PLuQQBBQFfpgq0OvjKbjcYgTDzDxTqtwua). If you are interested in giving a talk, [fill out this short form](https://forms.gle/QwxKusVvrvDakSNs8).
 
-### Cloud infrastructure
-- [2i2c JupyterHub](https://us-central1-b.gcp.pangeo.io/hub/login?next=%2Fhub%2F): serves Pangeo on open source infrastructure. It's operated and designed by [2i2c](https://2i2c.org/), and funded by [NSF EarthCube Program (Award ICER-2026932)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2026932). The service is **open to anyone** that a hub administrator has approved the application form (see [here](https://docs.google.com/forms/d/e/1FAIpQLSeqKncKG-s365pC_Lfe4_UetJ-wcFfjOSyHhYYQjXbKRHzswQ/viewform)). Find a blog post informing the 2i2c/Pangeo partnership [here](https://2i2c.org/blog/2021/pangeo-goes-live/).
-
-### Data life cycle
-- [Pangeo Forge](https://pangeo-forge.org/):  a tool designed to aid the extraction, transformation, and loading of datasets.
-
-### Most recent trainings (2021/22)
+### Most recent trainings (2021/24)
+- **Digital Scholarship Days 2024**: [Unlocking the Power of EOSC](https://www.ub.uio.no/english/courses-events/events/dsc/2024/digital-scholarship-days/21-unlocking-eosc.html): Navigating Services for Research Visibility and Impact - The European Open Science Cloud (EOSC) in a nutshell. Jan. 12, 2024 9:00 AM – 12:00 PM at the university of Oslo, Norway.
+- **BiDS 2023**: [PANGEO & OpenEO one day Training event](https://openeo.cloud/2023/09/05/bids23-satellite-event-monday-6th-november/)
+- **[Reproducibility Challenge 2023](https://eds-book.github.io/reproducibility-challenge-2023/intro.html)**
+- **FOSS4G 2022**: [Pangeo Training event](https://pangeo-data.github.io/foss4g-2022)
+- **[Pangeo 101 Tutorial for CLIVAR CMIP6 Bootcamp 2022](https://pangeo-data.github.io/clivar-2022/)**
+- **[eScience 2022 course on Tools in Climate Science: Linking Observations with Modelling](https://pangeo-data.github.io/escience-2022/)**
 - [Galaxy training in climate data](https://training.galaxyproject.org/training-material/topics/climate/): contains two modules introducing Pangeo, _Pangeo ecosystem 101 for everyone_ and _Pangeo Notebook in Galaxy - Introduction to Xarray_ showcasing how the Pangeo stack assists processing and analysing big climate datasets.
 - [BIOGEOMON 2022 Python Pangeo Workshop](https://github.com/LandscapeGeoinformatics): led by [Landscape Geoinformatics](https://github.com/LandscapeGeoinformatics) includes Jupyter notebooks demonstrating Xarray for working with labeled multi-dimensional arrays of data. The material also shows a few basic steps how to improve reproducibility and pro-actively apply FAIR principles when sharing and archiving data and code online for publishing via [GitHub](https://github.com/) and [Zenodo](https://zenodo.org/).
 - [FOSS4G 2021](https://github.com/pangeo-data/foss4g-2021): focuses on data discovery with SpatioTemporal Asset Catalogs (STAC), data loading with Cloud-optimized formats (Cloud-Optimized Geotiff, ZARR), and scalable analysis with Xarray and Dask libraries.

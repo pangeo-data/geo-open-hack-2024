@@ -30,6 +30,7 @@ dependencies:
   - s3fs
   - git
   - ipycytoscape
+  - datashader
   - jupyterlab-git
   - "nodejs>=16,<17"
   - jupyterlab-myst>=2.0.0

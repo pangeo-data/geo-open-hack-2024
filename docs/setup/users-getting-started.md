@@ -50,7 +50,7 @@ In addition to the MinIO console, the API end point is `https://pangeo-eosc-mini
 
 ## Clone the github repository
 
-To get a local copy of the `geo-open-hack-2024` repository, you can clone it on your local computer and/or server:
+To get a local copy of the `geo-open-hack-2024` repository, you can clone it on your local computer and/or server. Open a terminal in the JupyterHub and clone the repository with the following command:
 
 ```
 git clone https://github.com/pangeo-data/geo-open-hack-2024.git

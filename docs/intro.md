@@ -73,8 +73,6 @@ By the end of this tutorial, learners will be able to:
 - Learn about the European Open Science Cloud (EOSC)
 - Understand the Pangeo ecosystem and Pangeo@EOSC;
 - Learn to access, load, and analyse data using Xarray, visualising data with Hvplot, and scaling workflows with Dask;
-- Understand how to interface Pangeo ecosystem (Xarray & Dask) with the most common machine learning Python ecosystem ([Pytorch](https://pytorch.org) & [Tensorflow](https://www.tensorflow.org/)).
-
 
 ## Prerequisites
 

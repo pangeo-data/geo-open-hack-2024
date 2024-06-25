@@ -20,9 +20,14 @@ parts:
         title: Chunking
       - file: pangeo/dask_introduction
         title: Parallel computing with dask
+  - caption: Creating ARCO
+    chapters:
+      - file: storage/setup-object-storage
+        title: Create Minio Access Keys
+      - file: storage/minio-object-storage
+        title: Using personal online storage
   - caption: Beyond the workshop
     chapters:
-      - file: setup/object-storage-minio-test
       - file: afterword/resources
         title: Resources
       - file: afterword/pythia

@@ -20,6 +20,8 @@ parts:
         title: Chunking
       - file: pangeo/dask_introduction
         title: Parallel computing with dask
+      - file: pangeo/dask_spider
+        title: Parallel computing with dask on HPC/HTC on spider
   - caption: Creating ARCO
     chapters:
       - file: storage/setup-object-storage

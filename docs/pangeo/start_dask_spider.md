@@ -43,7 +43,7 @@ We prepared the dask configuration file for spider that you need to copy:
 ```
 cd $HOME
 mkdir -p ~/.config/dask
-cp /project/geocourse/Software/pangeo/JupyterDaskOnSLURM/config/dask/config_spider.yml ~/.config/dask/config.yml
+cp /project/geocourse/Software/pangeo/config_dask_geohack.yml ~/.config/dask/config.yml
 ```
 
 Then copy the batch job we prepared to submit on spider and start jupyterLab:

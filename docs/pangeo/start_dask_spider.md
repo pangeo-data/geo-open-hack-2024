@@ -211,3 +211,43 @@ You can execute this command in a new terminal window **on your local machine**
 from your browser at `localhost:8889`.
 
 
+<div class="alert alert-info">
+    <i class="fa-check-circle fa" style="font-size: 22px;color:#666;"></i> <b>What if you do not have container on your HPC?</b>
+    <br>
+    <ul>
+        <li > Make sure you have path to conda by updating your .bashrc </li>
+        <li > install micromamba with follwoing commad; 
+       <pre >   
+cd $HOME
+mkdir bin micromamba
+cd bin
+"/bin/bash" <(curl -L micro.mamba.pm/install.sh)
+       </pre >   
+</li>
+     <li > Install pangeo enviroment with follwoing commad; 
+       <pre >   
+wget https://raw.githubusercontent.com/pangeo-data/pangeo-docker-images/master/pangeo-notebook/environment.yml
+micromamba create -n pangeo-notebook -f environment.yml
+micromamba activate pangeo-notebook
+micromamba install dask-jobqueue
+       </pre> 
+</li>
+<li > Install jupyter-forward on your PC; 
+<pre >   
+pip install jupyter-forward
+# in case of spider you can use patched version here; 
+#pip install git+https://github.com/tinaok/jupyter-forward@spider
+# but you are not recommended to use the conda
+jupyter-forward --port 9999  --conda-env "/home/geocourse-teacher10/y/envs/pangeo" --shell bash --port-forwarding  -c "sbatch -N 1 -c 1 -p normal "  spider
+
+</pre> 
+Then you will have your jupyter lab pops up on your local PC but can use resources from your compute node! 
+<li >To use Dask, you need to configure dask jobqueue for your HPC scheduler; 
+Try to contact your HPC administrator for hte best practice on configuring your ~/.config/dask/config.yml.  If you want to simplify the configuration for your HPC center, plz contact us for participating dask-hpcconfig project!!   <a href="https://github.com/umr-lops/dask-hpcconfig">https://github.com/umr-lops/dask-hpcconfig</a>
+</li>
+
+</li>
+
+
+
+</div>

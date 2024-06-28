@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Scaling on HPC/HTC &#8212; GEO-OPEN-HACK 2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pangeo/start_dask_spider';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parallel computing with Dask on HPC (Spider Cluster SURF)" href="dask_spider.html" />
+    <link rel="prev" title="Parallel computing with Dask" href="dask_introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pangeo-logo.png" class="logo__image only-light" alt="GEO-OPEN-HACK 2024 - Home"/>
+    <script>document.write(`<img src="../_static/pangeo-logo.png" class="logo__image only-dark" alt="GEO-OPEN-HACK 2024 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    GEO-OPEN-HACK-2024
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../agenda.html">Agenda</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started with Pangeo@EOSC</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../setup/eosc-pangeo.html">EOSC and the Pangeo community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup/users-getting-started.html">Registration to Pangeo@EOSC</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Learning to master the Pangeo ecosystem</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="xarray_introduction.html">Handling multi-dimensional arrays with xarray</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Interactive plotting with holoviews</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_discovery.html">Data access and discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chunking_introduction.html">Chunking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dask_introduction.html">Parallel computing with dask</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Set up JupyterLab and dask on HPC/HTC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dask_spider.html">Parallel computing with dask on HPC/HTC on spider</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Creating ARCO</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../storage/setup-object-storage.html">Create Minio Access Keys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../storage/minio-object-storage.html">Using personal online storage</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Beyond the workshop</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../afterword/resources.html">Join the community!</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../afterword/pythia.html">Project Pythia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../afterword/envds-book.html">Environmental Data Science Book</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/pangeo-data/geo-open-hack-2024" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/pangeo-data/geo-open-hack-2024/issues/new?title=Issue%20on%20page%20%2Fpangeo/start_dask_spider.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pangeo/start_dask_spider.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scaling on HPC/HTC</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-wrapper-for-spider-system">Container wrapper for Spider system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyterlab-and-use-dask-on-spider">Launch JupyterLab and use dask on Spider</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-job-to-start-jupyterlab">Submit job to start jupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-jupyterlab-from-your-local-computer">Open jupyterLab from your local computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shutting-down">Shutting down</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-own-image">Create your own image</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scaling-on-hpc-htc">
+<h1>Scaling on HPC/HTC<a class="headerlink" href="#scaling-on-hpc-htc" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Anne Fouilloux, Simula Research Laboratory (Norway), <a class="reference external" href="https://github.com/annefou">&#64;annefou</a></p></li>
+<li><p>Francesco Nattino, Netherlands eScience Center (Netherlands), <a class="reference external" href="https://github.com/fnattino">&#64;fnattino</a></p></li>
+<li><p>Meiert W. Grootes, Netherlands eScience Center (Netherlands), <a class="reference external" href="https://github.com/meiertgrootes">&#64;meiertgrootes</a></p></li>
+<li><p>Ou Ku, Netherlands eScience Center (Netherlands), <a class="reference external" href="https://github.com/rogerkuou">&#64;rogerkuou</a></p></li>
+<li><p>Tina Odaka, Ifremer (France), <a class="reference external" href="https://github.com/tinaok">&#64;tinaok</a></p></li>
+</ul>
+<div class="alert alert-info">
+    <i class="fa-check-circle fa" style="font-size: 22px;color:#666;"></i> <b>Note</b>
+    <br>
+    <ul>
+        <li>This episode has been developed in collaboration with SURF and the eScience Center (Nederlands) and is based on the work done by the eScience Center. Their documentation can be found at <a href="https://github.com/RS-DAT/JupyterDaskOnSLURM/blob/main/user-guide.md#container-wrapper-for-spider-system">https://github.com/RS-DAT/JupyterDaskOnSLURM/blob/main/user-guide.md#container-wrapper-for-spider-system</a>. The scripts we used in this tutorial are also developed by the eScience Center (Francesco Nattino, Meiert W. Grootes, and Ou Ku), and copied on the shared project folder during the Geo Open Hack Pangeo tutorial. If you are interested in using this approach at SURF for your own work, we suggest you follow the <a href="https://github.com/RS-DAT/JupyterDaskOnSLURM/blob/main/user-guide.md#container-wrapper-for-spider-system">documentation</a>. </li>
+    </ul>
+</div>
+In this section, we will show how to move from the cloud to HPC/HTC to scale. 
+<p>For this section, you need to have an account on <a class="reference external" href="https://doc.spider.surfsara.nl/en/latest/Pages/about.html">Spider</a> from <a class="reference external" href="https://www.surf.nl/">SURF</a>.
+We are using <a class="reference external" href="https://apptainer.org">Apptainer</a> and for the training, we will be using an image with less Python packages (sufficient for executing all the notebooks from the tutorial).</p>
+<section id="container-wrapper-for-spider-system">
+<h2>Container wrapper for Spider system<a class="headerlink" href="#container-wrapper-for-spider-system" title="Link to this heading">#</a></h2>
+<p>On Spider, using conda environments will lead to performance issues, due to
+conda’s nature of many small files. In such cases, one can containerize the
+conda environment. One way to do this is to use the
+<a class="reference external" href="https://github.com/CSCfi/hpc-container-wrapper">hpc-container-wrapper</a> tool.
+This is a container wrapper tool developed by Finnish IT center for science
+(CSC).</p>
+</section>
+<section id="launch-jupyterlab-and-use-dask-on-spider">
+<h2>Launch JupyterLab and use dask on Spider<a class="headerlink" href="#launch-jupyterlab-and-use-dask-on-spider" title="Link to this heading">#</a></h2>
+<section id="set-up">
+<h3>Set up<a class="headerlink" href="#set-up" title="Link to this heading">#</a></h3>
+<p>First, login to spider:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ssh -Y2C -i $HOME/.ssh/id_rsa $USER@spider.surfsara.nl
+</pre></div>
+</div>
+<p>We prepared the dask configuration file for spider that you need to copy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME
+mkdir -p ~/.config/dask
+cp /project/geocourse/Software/pangeo/config_dask_geohack.yml ~/.config/dask/config.yml
+</pre></div>
+</div>
+<p>Then copy the batch job we prepared to submit on spider and start jupyterLab:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/scripts
+
+cp /project/geocourse/Software/pangeo/JupyterDaskOnSLURM/scripts/jupyter_dask_spider_container.bsh $HOME/scripts/.
+</pre></div>
+</div>
+</section>
+<section id="submit-job-to-start-jupyterlab">
+<h3>Submit job to start jupyterLab<a class="headerlink" href="#submit-job-to-start-jupyterlab" title="Link to this heading">#</a></h3>
+<p>Whenever you want to start a JupyterLab, you would need to submit <code class="docutils literal notranslate"><span class="pre">jupyter_dask_spider_container.bsh</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sbatch</span> <span class="n">scripts</span><span class="o">/</span><span class="n">jupyter_dask_spider_container</span><span class="o">.</span><span class="n">bsh</span>
+</pre></div>
+</div>
+</section>
+<section id="open-jupyterlab-from-your-local-computer">
+<h3>Open jupyterLab from your local computer<a class="headerlink" href="#open-jupyterlab-from-your-local-computer" title="Link to this heading">#</a></h3>
+<p>Open another terminal on your computer and from your local terminal. The job you submitted should be running. You can check it using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>squeue -u $USER
+</pre></div>
+</div>
+<p>Then check the slurm output,</p>
+<p><img alt="SBatch Output" src="../_images/sbatch_out.png" /></p>
+<p>You should have something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">private</span><span class="o">/</span><span class="n">ssh</span><span class="o">/</span><span class="n">key</span> <span class="o">-</span><span class="n">N</span> <span class="o">-</span><span class="n">L</span> <span class="mi">8889</span><span class="p">:</span><span class="n">wn</span><span class="o">-</span><span class="n">ca</span><span class="o">-</span><span class="mi">03</span><span class="p">:</span><span class="mi">9300</span> <span class="n">geocourse</span><span class="o">-</span><span class="n">teacher09</span><span class="nd">@spider</span><span class="o">.</span><span class="n">surf</span><span class="o">.</span><span class="n">nl</span>
+</pre></div>
+</div>
+<p>Copy/paste the command given in your slurm output but update the path to the ssh key you are using to login to spider (e.g. <code class="docutils literal notranslate"><span class="pre">/home/annef/.ssh/id_rsa</span></code>).</p>
+<ul class="simple">
+<li><p>If you copy the command above, make sure to change the username <code class="docutils literal notranslate"><span class="pre">geocourse-teacher09</span></code> to your username on spider.</p></li>
+<li><p>Open your browser and paste <code class="docutils literal notranslate"><span class="pre">http://localhost:8889/</span></code> to get your JupyterLab session.</p></li>
+</ul>
+</section>
+<section id="shutting-down">
+<h3>Shutting down<a class="headerlink" href="#shutting-down" title="Link to this heading">#</a></h3>
+<p>From the Dask tab in the Jupyter interface, click “shutdown” on a running cluster instance to kill all workers and the scheduler (a new cluster based on the default configurations can be re-created by pressing the “+” button).</p>
+<p>From the Jupyter interface, select “File &gt; Shutdown” to stop the Jupyter server and release resources.</p>
+<p>If the job running the Jupyter server and the Dask scheduler is killed, the Dask workers will also be killed shortly after (configure this using the <code class="docutils literal notranslate"><span class="pre">death-timeout</span></code> key in the config file).</p>
+<p>However, you can use <code class="docutils literal notranslate"><span class="pre">squeue</span> <span class="pre">-</span> <span class="pre">u</span> <span class="pre">$USER</span></code> command to check all your jobs (including all the jobs related to dask) are stopped. Cancel any remaining jobs!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>             <span class="n">JOBID</span> <span class="n">PARTITION</span>     <span class="n">NAME</span>     <span class="n">USER</span> <span class="n">ST</span>       <span class="n">TIME</span>  <span class="n">NODES</span> <span class="n">NODELIST</span><span class="p">(</span><span class="n">REASON</span><span class="p">)</span>
+          <span class="mi">13091627</span>    <span class="n">normal</span> <span class="n">dask</span><span class="o">-</span><span class="n">wor</span> <span class="n">geocours</span>  <span class="n">R</span>       <span class="mi">1</span><span class="p">:</span><span class="mi">37</span>      <span class="mi">1</span> <span class="n">wn</span><span class="o">-</span><span class="n">ca</span><span class="o">-</span><span class="mi">09</span>
+          <span class="mi">13091628</span>    <span class="n">normal</span> <span class="n">dask</span><span class="o">-</span><span class="n">wor</span> <span class="n">geocours</span>  <span class="n">R</span>       <span class="mi">1</span><span class="p">:</span><span class="mi">37</span>      <span class="mi">1</span> <span class="n">wn</span><span class="o">-</span><span class="n">dc</span><span class="o">-</span><span class="mi">12</span>
+          <span class="mi">13091629</span>    <span class="n">normal</span> <span class="n">dask</span><span class="o">-</span><span class="n">wor</span> <span class="n">geocours</span>  <span class="n">R</span>       <span class="mi">1</span><span class="p">:</span><span class="mi">37</span>      <span class="mi">1</span> <span class="n">wn</span><span class="o">-</span><span class="n">ca</span><span class="o">-</span><span class="mi">07</span>
+          <span class="mi">13091630</span>    <span class="n">normal</span> <span class="n">dask</span><span class="o">-</span><span class="n">wor</span> <span class="n">geocours</span>  <span class="n">R</span>       <span class="mi">1</span><span class="p">:</span><span class="mi">37</span>      <span class="mi">1</span> <span class="n">wn</span><span class="o">-</span><span class="n">ca</span><span class="o">-</span><span class="mi">07</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="create-your-own-image">
+<h2>Create your own image<a class="headerlink" href="#create-your-own-image" title="Link to this heading">#</a></h2>
+<p>Follow these steps if you want to know more and create your own image.</p>
+<p>To set up the container wrapper, first log in to Spider. Then, clone the <code class="docutils literal notranslate"><span class="pre">JupyterDaskOnSLURM</span></code> repository:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>http://github.com/RS-DAT/JupyterDaskOnSLURM.git<span class="w"> </span>
+</pre></div>
+</div>
+<p>Then, clone both the <code class="docutils literal notranslate"><span class="pre">hpc-container-wrapper</span></code> repository:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/CSCfi/hpc-container-wrapper.git
+</pre></div>
+</div>
+<p>Then, copy the container config file <code class="docutils literal notranslate"><span class="pre">spider.yaml</span></code> file from the
+<code class="docutils literal notranslate"><span class="pre">JupyterDaskOnSLURM</span></code> to the <code class="docutils literal notranslate"><span class="pre">.config</span></code> file in <code class="docutils literal notranslate"><span class="pre">hpc-container-wrapper</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>./JupyterDaskOnSLURM/config/container/spider.yaml<span class="w"> </span>./hpc-container-wrapper/configs/
+</pre></div>
+</div>
+<p>Change to the <code class="docutils literal notranslate"><span class="pre">hpc-container-wrapper</span></code> directory and run the
+<code class="docutils literal notranslate"><span class="pre">install.sh</span></code> script to install the container wrapper:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>hpc-container-wrapper
+bash<span class="w"> </span>install.sh<span class="w"> </span>spider
+</pre></div>
+</div>
+<p>Next, copy the <code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file from the <code class="docutils literal notranslate"><span class="pre">JupyterDaskOnSLURM</span></code>
+to the current directory and create a container. In the following example, we
+create a container under <code class="docutils literal notranslate"><span class="pre">jupyter_dask</span></code> directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>./jupyter_dask
+cp<span class="w"> </span>../JupyterDaskOnSLURM/environment.yaml<span class="w"> </span>.
+bin/conda-containerize<span class="w"> </span>new<span class="w"> </span>--prefix<span class="w"> </span>./jupyter_dask<span class="w"> </span>./environment.yaml
+</pre></div>
+</div>
+<p>At the end of the installation, the tool will print the path to the executable
+directory (<code class="docutils literal notranslate"><span class="pre">bin</span></code> directory) of the container. For example:</p>
+<div class="highlight-output notranslate"><div class="highlight"><pre><span></span><span class="go">export PATH=&quot;/absolute/path/to/the/container/bin:$PATH&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/dask
+cp<span class="w"> </span>JupyterDaskOnSLURM/config/dask/config_spider.yml<span class="w"> </span>~/.config/dask/config.yml
+</pre></div>
+</div>
+<p>Then add the following lines to the <code class="docutils literal notranslate"><span class="pre">~/.config/dask/config.yml</span></code> file, under the
+<code class="docutils literal notranslate"><span class="pre">slurm</span></code> section of <code class="docutils literal notranslate"><span class="pre">jobqueue</span></code> section, note that you need to replace the <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PATH</span></code> part with the output from the container creation step:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">job_script_prologue</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;export</span><span class="nv"> </span><span class="s">PATH=&quot;/absolute/path/to/the/container/bin:$PATH&quot;&#39;</span><span class="w"> </span><span class="c1"># Export environment path to</span>
+<span class="w">    </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
+</pre></div>
+</div>
+<p>After adding the lines, the <code class="docutils literal notranslate"><span class="pre">~/.config/dask/config.yml</span></code> file should look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">distributed</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">... Some other configurations ...</span>
+<span class="w">  </span><span class="nt">labextension</span><span class="p">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">... Some other configurations ...</span>
+<span class="w">  </span><span class="nt">jobqueue</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">slurm</span><span class="p">:</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">... Some other configurations ...</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">job_script_prologue</span><span class="p p-Indicator">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;export</span><span class="nv"> </span><span class="s">PATH=&quot;/home/caroline-oku/caroline/Public/demo_mobyle/container_wrapper/hpc-container-wrapper/tmp/bin:$PATH&quot;&#39;</span>
+<span class="w">      </span><span class="nt">python</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python</span>
+</pre></div>
+</div>
+<p>Then also configure the SLURM job file
+<code class="docutils literal notranslate"><span class="pre">JupyterDaskOnSLURM/scripts/jupyter_dask_spider_container.bsh</span></code>. Then replace the
+following part with the PATH exportaion from the container creation step:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># CHANGE THIS TO THE ABSOLUTE PATH TO THE CONTAINER BIN</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/absolute/path/to/the/container/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Now you have reached the exit point of the deployment script! The Jupyter Server
+with Dask plugin can now be started using the
+<code class="docutils literal notranslate"><span class="pre">jupyter_dask_spider_container.bsh</span></code> script.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>JupyterDaskOnSLURM/scripts/jupyter_dask_spider_container.bsh
+</pre></div>
+</div>
+<p>After the job starts, there will be an example <code class="docutils literal notranslate"><span class="pre">ssh</span></code> command printed in the job stdout (file <code class="docutils literal notranslate"><span class="pre">slurm-&lt;JOB_ID&gt;.out</span></code>). It should look like:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-i<span class="w"> </span>/path/to/private/ssh/key<span class="w"> </span>-N<span class="w"> </span>-L<span class="w"> </span><span class="m">8889</span>:NODE:8888<span class="w"> </span>USER@sssssss.surf.nl
+</pre></div>
+</div>
+<p>You can execute this command in a new terminal window <strong>on your local machine</strong>
+(modify the path to the private key). You can now access the Jupyter session
+from your browser at <code class="docutils literal notranslate"><span class="pre">localhost:8889</span></code>.</p>
+<div class="alert alert-info">
+    <i class="fa-check-circle fa" style="font-size: 22px;color:#666;"></i> <b>What if you do not have container on your HPC?</b>
+    <br>
+    <ul>
+        <li > Make sure you have path to conda by updating your .bashrc </li>
+        <li > install micromamba with follwoing commad; 
+       <pre >   
+cd $HOME
+mkdir bin micromamba
+cd bin
+"/bin/bash" <(curl -L micro.mamba.pm/install.sh)
+       </pre >   
+</li>
+     <li > Install pangeo enviroment with follwoing commad; 
+       <pre >   
+wget https://raw.githubusercontent.com/pangeo-data/pangeo-docker-images/master/pangeo-notebook/environment.yml
+micromamba create -n pangeo-notebook -f environment.yml
+micromamba activate pangeo-notebook
+micromamba install dask-jobqueue
+       </pre> 
+</li>
+<li > Install jupyter-forward on your PC; 
+<pre >   
+pip install jupyter-forward
+# in case of spider you can use patched version here; 
+#pip install git+https://github.com/tinaok/jupyter-forward@spider
+# but you are not recommended to use the conda
+jupyter-forward --port 9999  --conda-env "/home/geocourse-teacher10/y/envs/pangeo" --shell bash --port-forwarding  -c "sbatch -N 1 -c 1 -p normal "  spider
+</pre> 
+Then you will have your jupyter lab pops up on your local PC but can use resources from your compute node! 
+<li >To use Dask, you need to configure dask jobqueue for your HPC scheduler; 
+Try to contact your HPC administrator for hte best practice on configuring your ~/.config/dask/config.yml.  If you want to simplify the configuration for your HPC center, plz contact us for participating dask-hpcconfig project!!   <a href="https://github.com/umr-lops/dask-hpcconfig">https://github.com/umr-lops/dask-hpcconfig</a>
+</li>
+</li>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pangeo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dask_introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Parallel computing with Dask</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dask_spider.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Parallel computing with Dask on HPC (Spider Cluster SURF)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#container-wrapper-for-spider-system">Container wrapper for Spider system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-jupyterlab-and-use-dask-on-spider">Launch JupyterLab and use dask on Spider</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set up</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#submit-job-to-start-jupyterlab">Submit job to start jupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-jupyterlab-from-your-local-computer">Open jupyterLab from your local computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shutting-down">Shutting down</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-own-image">Create your own image</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Pangeo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -43,12 +43,14 @@ We prepared the dask configuration file for spider that you need to copy:
 ```
 cd $HOME
 mkdir -p ~/.config/dask
-cp /project/geocourse/Software/pangeo/JupyterDaskOnSLURM/config/dask/config_spider.yml ~/.config/dask/config.yml
+cp /project/geocourse/Software/pangeo/config_dask_geohack.yml ~/.config/dask/config.yml
 ```
 
 Then copy the batch job we prepared to submit on spider and start jupyterLab:
 
 ```
+mkdir -p ~/scripts
+
 cp /project/geocourse/Software/pangeo/JupyterDaskOnSLURM/scripts/jupyter_dask_spider_container.bsh $HOME/scripts/.
 ```
 
@@ -57,7 +59,7 @@ cp /project/geocourse/Software/pangeo/JupyterDaskOnSLURM/scripts/jupyter_dask_sp
 Whenever you want to start a JupyterLab, you would need to submit `jupyter_dask_spider_container.bsh`:
 
 ```
-sbatch jupyter_dask_spider_container.bsh
+sbatch scripts/jupyter_dask_spider_container.bsh
 ```
 
 ### Open jupyterLab from your local computer
@@ -68,7 +70,11 @@ Open another terminal on your computer and from your local terminal. The job you
 squeue -u $USER
 ```
 
-Then check the slurm output, where you should have something like:
+Then check the slurm output,
+
+![SBatch Output](sbatch_out.png)
+
+You should have something like:
 
 ```
 ssh -i /path/to/private/ssh/key -N -L 8889:wn-ca-03:9300 geocourse-teacher09@spider.surf.nl
@@ -77,7 +83,7 @@ ssh -i /path/to/private/ssh/key -N -L 8889:wn-ca-03:9300 geocourse-teacher09@spi
 Copy/paste the command given in your slurm output but update the path to the ssh key you are using to login to spider (e.g. `/home/annef/.ssh/id_rsa`).
 
 - If you copy the command above, make sure to change the username `geocourse-teacher09` to your username on spider.
-- Open your browser and paste `http://localhost:8889/` tor get your JupyterLab session.
+- Open your browser and paste `http://localhost:8889/` to get your JupyterLab session.
 
 ### Shutting down
 
